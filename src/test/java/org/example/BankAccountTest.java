@@ -31,4 +31,22 @@ public class BankAccountTest {
         Assert.assertEquals(1000, personalAccount.getBalance(), 0.01);
         Assert.assertEquals(1000, businessAccount.getBalance(), 0.01);
     }
+
+    @Test
+    public void withdrawMoneyFromTheAccount() {
+        personalAccount.withdraw(200);
+        businessAccount.withdraw(100);
+
+        Assert.assertEquals(800, personalAccount.getBalance(), 0.01);
+        Assert.assertEquals(900, businessAccount.getBalance(), 0.01);
+    }
+
+    @Test
+    public void withdrawMoneyFromTheAccountInvalid() {
+        personalAccount.withdraw(50000);
+        businessAccount.withdraw(90000);
+
+        Assert.assertEquals(1000, personalAccount.getBalance(), 0.01);
+        Assert.assertEquals(1000, businessAccount.getBalance(), 0.01);
+    }
 }
