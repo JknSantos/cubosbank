@@ -9,6 +9,12 @@ public class PersonalAccount extends BankAccount{
     }
 
     @Override
+    public String getAccountDetails() {
+
+        return "Personal Account [CPF: " + cpf + "]";
+    }
+
+    @Override
     public void deposit(double amount) {
         super.deposit(amount);
     }

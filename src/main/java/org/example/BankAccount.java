@@ -43,6 +43,8 @@ public abstract class BankAccount {
         return balance;
     }
 
+    public abstract String getAccountDetails();
+
     public List<String> getTransactions() {
         return transactions;
     }
