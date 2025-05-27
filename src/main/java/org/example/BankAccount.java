@@ -20,6 +20,17 @@ public abstract class BankAccount {
         if(amount > 0) {
             balance += amount;
             transactions.add("Depósito: " + amount);
+        } else {
+            transactions.add("Falha na tentativa de Depósito: " + amount);
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            transactions.add("Saque: : " + amount);
+        } else {
+            transactions.add("Falha na tentativa de Saque: " + amount);
         }
     }
 
