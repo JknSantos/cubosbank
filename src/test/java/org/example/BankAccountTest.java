@@ -22,4 +22,13 @@ public class BankAccountTest {
         Assert.assertEquals(1500, personalAccount.getBalance(), 0.01);
         Assert.assertEquals(1200, businessAccount.getBalance(), 0.01);
     }
+
+    @Test
+    public void depositMoneyFromAccountInvalid() {
+        personalAccount.deposit(-50);
+        businessAccount.deposit(0);
+
+        Assert.assertEquals(1000, personalAccount.getBalance(), 0.01);
+        Assert.assertEquals(1000, businessAccount.getBalance(), 0.01);
+    }
 }
