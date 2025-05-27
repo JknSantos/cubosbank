@@ -9,5 +9,9 @@ public class BusinessAccount extends BankAccount {
         this.cnpj = cnpj;
     }
 
+    @Override
+    public String getAccountDetails() {
 
+        return "Business Account [CNPJ: " + cnpj + "]";
+    }
 }
