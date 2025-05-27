@@ -25,6 +25,15 @@ public abstract class BankAccount {
         }
     }
 
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            transactions.add("Saque: : " + amount);
+        } else {
+            transactions.add("Falha na tentativa de Saque: " + amount);
+        }
+    }
+
     public String getCustomerName() {
         return customerName;
     }
