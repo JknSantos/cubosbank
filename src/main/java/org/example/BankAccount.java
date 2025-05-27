@@ -20,6 +20,8 @@ public abstract class BankAccount {
         if(amount > 0) {
             balance += amount;
             transactions.add("Depósito: " + amount);
+        } else {
+            transactions.add("Falha na tentativa de Depósito: " + amount);
         }
     }
 
