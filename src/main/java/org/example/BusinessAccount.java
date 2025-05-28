@@ -4,8 +4,8 @@ public class BusinessAccount extends BankAccount {
 
     private String cnpj;
 
-    public BusinessAccount(String customerName, String billingAddress, double initialBalance, String cnpj) {
-        super(customerName, billingAddress, initialBalance);
+    public BusinessAccount(String customerName, String billingAddress, double initialBalance, String password, String cnpj) {
+        super(customerName, billingAddress, initialBalance, password);
         this.cnpj = cnpj;
     }
 
