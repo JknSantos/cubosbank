@@ -60,5 +60,13 @@ public abstract class BankAccount {
         return transactions;
     }
 
+    public void printStatement() {
+        System.out.println("Extrato de: " + customerName);
+        for (String transaction : transactions) {
+            System.out.println(transaction);
+        }
+        System.out.println("Saldo atual: " + balance);
+    }
+
 }
 
