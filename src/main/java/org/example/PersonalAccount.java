@@ -3,8 +3,8 @@ package org.example;
 public class PersonalAccount extends BankAccount{
     private String cpf;
 
-    public PersonalAccount(String customerName, String billingAddress, double initialBalance, String cpf) {
-        super(customerName, billingAddress, initialBalance);
+    public PersonalAccount(String customerName, String billingAddress, double initialBalance, String password, String cpf) {
+        super(customerName, billingAddress, initialBalance, password);
         this.cpf = cpf;
     }
 

@@ -23,8 +23,8 @@ public class BankAccountTest {
 
         System.setOut(mockPrintStream);
 
-        personalAccount = new PersonalAccount("Jackson Felipe", "Rua 26 de maio, 225", 1000, "123.123.123-13");
-        businessAccount = new BusinessAccount("Felipe do Nascimento", "Rua 26 de maio, 225", 1000, "73.798.618/001-12");
+        personalAccount = new PersonalAccount("Jackson Felipe", "Rua 26 de maio, 225", 1000, "123456", "123.123.123-13");
+        businessAccount = new BusinessAccount("Felipe do Nascimento", "Rua 26 de maio, 225", 1000, "123456", "73.798.618/001-12");
     }
 
     @Test

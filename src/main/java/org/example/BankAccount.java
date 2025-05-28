@@ -7,11 +7,14 @@ public abstract class BankAccount {
     private String customerName;
     private String billingAddress;
     private double balance;
+    private String password;
     private List<String> transactions;
 
-    public BankAccount(String customerName, String billingAddress, double initialBalance) {
+
+    public BankAccount(String customerName, String billingAddress, double initialBalance, String password) {
         this.customerName = customerName;
         this.balance = initialBalance;
+        this.password = password;
         this.transactions = new ArrayList<>();
         this.transactions.add("Saldo inicial: " + initialBalance);
     }
@@ -66,6 +69,14 @@ public abstract class BankAccount {
             System.out.println(transaction);
         }
         System.out.println("Saldo atual: " + balance);
+    }
+
+    public boolean verifyPassword(String password) {
+        if (this.password.equals(password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
