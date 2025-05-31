@@ -44,21 +44,33 @@ public class BankSystem {
         } else if (accountType == 2) {
             System.out.println("Digite o CNPJ: ");
             String cnpj = scanner.nextLine();
-            PersonalAccount personalAccount = new PersonalAccount(name, address, balance, password, cnpj);
-            accountsDatabase.put(cnpj, personalAccount);
-            System.out.println("Conta pessoal criada com sucesso!");
+            BusinessAccount businessAccount = new BusinessAccount(name, address, balance, password, cnpj);
+            accountsDatabase.put(cnpj, businessAccount);
+            System.out.println("Conta juridica criada com sucesso!");
         } else {
             System.out.println("Operação inválida!");
         }
     }
 
     public void deleteAccount() {
-        System.out.println("Digite o cpf: ");
+        System.out.println("Digite o CPF: ");
         String cpf = scanner.nextLine();
 
         if (accountsDatabase.containsKey(cpf)) {
-            accountsDatabase.remove(cpf);
-            System.out.println("Conta bancaria removida com sucesso!");
+            BankAccount bankAccount = accountsDatabase.get(cpf);
+            int logginAttempt = 3;
+            System.out.println("Digite a senha: ");
+            do {
+                String password = scanner.nextLine();
+                if (!bankAccount.verifyPassword(password)) {
+                    System.out.println("senha invalida. Tente novamente!");
+                    logginAttempt--;
+                } else {
+                    accountsDatabase.remove(cpf);
+                    System.out.println("Conta bancaria removida com sucesso!");
+                    break;
+                }
+            } while (logginAttempt != 0);
         } else {
             System.out.println("Conta não encontrada!");
         }
@@ -141,7 +153,8 @@ public class BankSystem {
     public static void main(String[] args) {
         HashMap<String, BankAccount> accounts = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-
+        PersonalAccount personalAccountTeste = new PersonalAccount("Jackson Felipe", "Rua Peru", 6000, "123", "123");
+        accounts.put("123", personalAccountTeste);
         BankSystem bankSystem = new BankSystem(accounts, scanner);
 
         int option;
