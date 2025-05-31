@@ -10,7 +10,6 @@ public class PersonalAccount extends BankAccount{
 
     @Override
     public String getAccountDetails() {
-
         return "Personal Account [CPF: " + cpf + "]";
     }
 
